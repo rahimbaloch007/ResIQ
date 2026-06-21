@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+from core.auth import login_gate
 
 st.set_page_config(
     page_title="ResIQ — Reservoir Intelligence Platform",
@@ -7,6 +8,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+if not login_gate():
+    st.stop()
 
 st.markdown("""
 <style>
